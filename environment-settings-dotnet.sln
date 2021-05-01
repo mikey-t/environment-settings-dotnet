@@ -11,6 +11,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{B9CB83E8
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MikeyT.EnvironmentSettings.Tests", "tests\MikeyT.EnvironmentSettings.Tests\MikeyT.EnvironmentSettings.Tests.csproj", "{A8CCD799-F213-4A7B-9B14-2A95B1FB8EDA}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionFiles", "SolutionFiles", "{5E9524AD-5423-41B3-A9A3-85FE9AE43BFD}"
+ProjectSection(SolutionItems) = preProject
+	.gitignore = .gitignore
+	environment-settings-dotnet.sln = environment-settings-dotnet.sln
+	LICENSE = LICENSE
+	README.md = README.md
+EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
