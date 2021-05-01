@@ -3,6 +3,21 @@
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
     <RootNamespace>MikeyT.EnvironmentSettingsNS</RootNamespace>
+    <PackageVersion>0.1.2-alpha</PackageVersion>
+    <Title>MikeyT.EnvironmentSettings</Title>
+    <Authors>Michael Thompson</Authors>
+    <Description>Dotnet environment variables wrapper. See project page: https://github.com/mikey-t/environment-settings-dotnet.</Description>
+    <Copyright>2021 Michael Thompson</Copyright>
+    <PackageProjectUrl>https://github.com/mikey-t/environment-settings-dotnet</PackageProjectUrl>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <RepositoryUrl>https://github.com/mikey-t/environment-settings-dotnet</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>dotnet;environment;environment-variables</PackageTags>
   </PropertyGroup>
-
+  <ItemGroup>
+    <None Include="LICENSE">
+      <Pack>true</Pack>
+      <PackagePath />
+    </None>
+  </ItemGroup>
 </Project>
