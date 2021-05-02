@@ -58,10 +58,10 @@ Create a `.env` file in your project so other developers can have different valu
 Example `.env` file:
 
 ```text
-DRS_POSTGRES_HOST=localhost
-DRS_POSTGRES_PORT=5432
-DRS_POSTGRES_USER=postgres
-DRS_POSTGRES_PASSWORD=super_secret
+POSTGRES_HOST=localhost
+POSTGRES_PORT=5432
+POSTGRES_USER=postgres
+POSTGRES_PASSWORD=super_secret
 ```
 
 In your `Program.cs` load environment variables from `.env`:
