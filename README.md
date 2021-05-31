@@ -46,7 +46,7 @@ public enum GlobalSettings
     [SettingInfo(DefaultValue = "my_db",
         DefaultForEnvironment = DefaultSettingForEnvironment.AllEnvironments,
         ShouldLogValue = true)]
-    DB_NAME
+    DB_NAME,
     
     [SettingInfo(DefaultValue = "SomeValue")]
     SOME_KEY
