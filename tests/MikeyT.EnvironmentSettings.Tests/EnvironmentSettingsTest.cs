@@ -18,6 +18,7 @@ namespace MikeyT.EnvironmentSettingsNS.Tests
         {
             _environmentVariableProvider.Reset();
             _secretVariableProvider.Reset();
+            _environmentVariableProvider.Setup(m => m.GetEnvironmentVariable(TestEnvironmentSettings.DONT_START_APP_WITHOUT_ME.ToString())).Returns("anything");
             _envSettings = new EnvironmentSettings(_environmentVariableProvider.Object, _secretVariableProvider.Object);
             _envSettings.AddSettings<TestEnvironmentSettings>();
         }
@@ -190,6 +191,16 @@ namespace MikeyT.EnvironmentSettingsNS.Tests
             var actual = _envSettings.GetString(TestEnvironmentSettings.SOME_SECRET);
 
             actual.Should().Be(secretValue);
+        }
+
+        [Fact]
+        public void GetString_NotSetAndThrowIfNotSetTrue_Throws()
+        {
+            _environmentVariableProvider.Reset();
+            _envSettings = new EnvironmentSettings(_environmentVariableProvider.Object, _secretVariableProvider.Object);
+            FluentActions.Invoking(() => _envSettings.AddSettings<TestEnvironmentSettings>())
+                .Should().Throw<ApplicationException>()
+                .WithMessage($"Missing required environment setting: {TestEnvironmentSettings.DONT_START_APP_WITHOUT_ME}");
         }
     }
 }

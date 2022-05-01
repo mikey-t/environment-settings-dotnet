@@ -44,6 +44,11 @@ namespace MikeyT.EnvironmentSettingsNS.Logic
                 {
                     settingValue = envVarValue ?? info.DefaultValue;
                 }
+                
+                if (info.ThrowIfNotSet && string.IsNullOrWhiteSpace(envVarValue))
+                {
+                    throw new ApplicationException("Missing required environment setting: " + enumName);
+                }
 
                 var envSettingWrapper = new EnvironmentSettingWrapper { Key = enumName, Value = settingValue, SettingInfo = info };
 

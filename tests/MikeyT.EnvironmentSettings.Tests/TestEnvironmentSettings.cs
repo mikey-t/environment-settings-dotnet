@@ -29,6 +29,9 @@ namespace MikeyT.EnvironmentSettingsNS.Tests
         SOME_SECRET_SETTING_WITH_ALL_ENVIRONMENTS_DEFAULT,
         
         [SettingInfo(SettingType = SettingType.Secret)]
-        SOME_SECRET
+        SOME_SECRET,
+        
+        [SettingInfo(ThrowIfNotSet = true)]
+        DONT_START_APP_WITHOUT_ME
     }
 }

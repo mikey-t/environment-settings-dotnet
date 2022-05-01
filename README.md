@@ -174,8 +174,3 @@ public class YourClassTest
     }
 }
 ```
-
-## TODO
-
-- Add `throwIfNotSet` functionality to `SettingInfo` and wire up to `EnvironmentSettings.Load()`
-- More unit tests
