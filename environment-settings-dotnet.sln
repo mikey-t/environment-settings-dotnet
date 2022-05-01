@@ -17,6 +17,10 @@ ProjectSection(SolutionItems) = preProject
 	environment-settings-dotnet.sln = environment-settings-dotnet.sln
 	LICENSE = LICENSE
 	README.md = README.md
+	package.json = package.json
+	gulpfile.js = gulpfile.js
+	.env = .env
+	.env.template = .env.template
 EndProjectSection
 EndProject
 Global

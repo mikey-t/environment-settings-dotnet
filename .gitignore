@@ -3,3 +3,5 @@
 .vs
 .idea
 environment-settings-dotnet.sln.DotSettings.user
+node_modules
+.env

@@ -1,0 +1,15 @@
+{
+  "name": "environment-settings-dotnet",
+  "version": "0.0.1",
+  "description": "Helper commands for nuget package project",
+  "scripts": {
+    "publish": "gulp publish"
+  },
+  "author": "Michael Thompson",
+  "private": true,
+  "devDependencies": {
+    "@mikeyt23/node-cli-utils": "^1.2.5",
+    "dotenv": "^16.0.0",
+    "gulp": "^4.0.2"
+  }
+}
