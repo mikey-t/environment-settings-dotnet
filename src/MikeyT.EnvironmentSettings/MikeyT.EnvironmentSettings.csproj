@@ -2,7 +2,7 @@
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
     <RootNamespace>MikeyT.EnvironmentSettingsNS</RootNamespace>
-    <PackageVersion>0.1.4-alpha</PackageVersion>
+    <PackageVersion>0.2.0</PackageVersion>
     <Title>MikeyT.EnvironmentSettings</Title>
     <Authors>Michael Thompson</Authors>
     <Description>Dotnet environment variables wrapper. See project page: https://github.com/mikey-t/environment-settings-dotnet.</Description>
