@@ -11,26 +11,30 @@ namespace MikeyT.EnvironmentSettingsNS.Logic
     public class EnvironmentSettings : IEnvironmentSettings
     {
         private readonly IEnvironmentVariableProvider _environmentVariableProvider;
+        private readonly ISecretVariableProvider _secretVariableProvider;
         private readonly Dictionary<string, EnvironmentSettingWrapper> _envSettingWrappers = new();
 
-        public EnvironmentSettings(IEnvironmentVariableProvider environmentVariableProvider)
+        public EnvironmentSettings(IEnvironmentVariableProvider environmentVariableProvider, ISecretVariableProvider secretVariableProvider)
         {
             _environmentVariableProvider = environmentVariableProvider;
+            _secretVariableProvider = secretVariableProvider;
         }
 
         public void AddSettings<TEnum>() where TEnum : Enum
         {
             var enumValues = Enum.GetValues(typeof(TEnum));
 
-            bool isLocal = IsLocal();
+            var isLocal = IsLocal();
 
             foreach (Enum enumVal in enumValues)
             {
                 var enumName = enumVal.ToName();
                 var info = enumVal.GetAttribute<SettingInfo>() ?? new SettingInfo();
 
-                var envVarValue = _environmentVariableProvider.GetEnvironmentVariable(enumName);
-                
+                var envVarValue = info.SettingType == SettingType.EnvironmentVariable
+                    ? _environmentVariableProvider.GetEnvironmentVariable(enumName)
+                    : _secretVariableProvider.GetEnvironmentVariable(enumName);
+
                 string settingValue;
                 if (info.DefaultForEnvironment == DefaultSettingForEnvironment.LocalOnly && !isLocal && envVarValue == null)
                 {
@@ -38,11 +42,11 @@ namespace MikeyT.EnvironmentSettingsNS.Logic
                 }
                 else
                 {
-                    settingValue = envVarValue ?? info.DefaultValue;                    
+                    settingValue = envVarValue ?? info.DefaultValue;
                 }
-                
-                var envSettingWrapper = new EnvironmentSettingWrapper {Key = enumName, Value = settingValue, SettingInfo = info};
-                
+
+                var envSettingWrapper = new EnvironmentSettingWrapper { Key = enumName, Value = settingValue, SettingInfo = info };
+
                 _envSettingWrappers.Add(enumName, envSettingWrapper);
             }
         }
@@ -83,7 +87,7 @@ namespace MikeyT.EnvironmentSettingsNS.Logic
 
             if (string.IsNullOrWhiteSpace(value))
             {
-                throw new ApplicationException($"Setting not loaded: " + name);
+                throw new ApplicationException("Setting not loaded: " + name);
             }
 
             return value;
@@ -106,7 +110,7 @@ namespace MikeyT.EnvironmentSettingsNS.Logic
 
             if (string.IsNullOrWhiteSpace(value))
             {
-                throw new ApplicationException($"Setting not loaded: " + name);
+                throw new ApplicationException("Setting not loaded: " + name);
             }
 
             try

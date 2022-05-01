@@ -177,6 +177,5 @@ public class YourClassTest
 
 ## TODO
 
-- Add interface for getting secrets and add `EnvironmentSettings` constructor overload
 - Add `throwIfNotSet` functionality to `SettingInfo` and wire up to `EnvironmentSettings.Load()`
 - More unit tests

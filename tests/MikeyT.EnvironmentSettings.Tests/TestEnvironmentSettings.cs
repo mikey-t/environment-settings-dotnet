@@ -5,26 +5,30 @@ namespace MikeyT.EnvironmentSettingsNS.Tests
 {
     public enum TestEnvironmentSettings
     {
-        SettingWithNoAttribute,
+        SETTING_WITH_NO_ATTRIBUTE,
 
         [SettingInfo(DefaultValue = "some string", ShouldLogValue = true)]
-        SomeStringSetting,
+        SOME_SETTING_STRING,
 
         [SettingInfo(DefaultValue = "42", ShouldLogValue = true)]
-        SomeIntSetting,
+        SOME_INT_SETTING,
 
         [SettingInfo(DefaultValue = "true", ShouldLogValue = true)]
-        SomeBoolSettingTrue,
+        SOME_BOOL_SETTING_TRUE,
 
         [SettingInfo(DefaultValue = "false", ShouldLogValue = true)]
-        SomeBoolSettingFalse,
+        SOME_BOOL_SETTING_FALSE,
 
-        [SettingInfo(ShouldLogValue = true)] SettingWithNoDefaultValue,
+        [SettingInfo(ShouldLogValue = true)]
+        SETTING_WITH_NO_DEFAULT_VALUE,
 
         [SettingInfo(DefaultValue = "test_secret_local_only_default", SettingType = SettingType.Secret, DefaultForEnvironment = DefaultSettingForEnvironment.LocalOnly)]
-        SomeSecretSettingWithLocalDefaultOnly,
+        SOME_SECRET_SETTING_WITH_LOCAL_DEFAULT_ONLY,
 
         [SettingInfo(DefaultValue = "test_secret_all_environment_default", SettingType = SettingType.Secret, DefaultForEnvironment = DefaultSettingForEnvironment.AllEnvironments)]
-        SomeSecretSettingWithAllEnvironmentsDefault
+        SOME_SECRET_SETTING_WITH_ALL_ENVIRONMENTS_DEFAULT,
+        
+        [SettingInfo(SettingType = SettingType.Secret)]
+        SOME_SECRET
     }
 }

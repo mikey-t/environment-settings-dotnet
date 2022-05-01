@@ -3,7 +3,7 @@ using MikeyT.EnvironmentSettingsNS.Interface;
 
 namespace MikeyT.EnvironmentSettingsNS.Logic
 {
-    public class EnvironmentVariableProvider : IEnvironmentVariableProvider
+    public class DefaultSecretVariableProvider : IEnvironmentVariableProvider
     {
         public string GetEnvironmentVariable(string name)
         {
